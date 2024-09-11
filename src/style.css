@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Synonym';
+  src: url('/src/Synonym/Fonts/OTF/Synonym-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Amulya';
+  src: url('/src/Amulya/Fonts/OTF/Amulya-Bold.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
