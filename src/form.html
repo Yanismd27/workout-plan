@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout plan generator</title>
+    <link rel="stylesheet" href="/src/output.css" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=synonym@400&f[]=amulya@700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/d0733e0c61.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-gradient-to-r from-slate-900 to-slate-300 h-screen">
+    <nav class="dark:bg-gray-900">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <i class="h-6 fa-solid fa-dumbbell"></i>
+          <span
+            class="self-center text-1xl font-semibold whitespace-nowrap dark:text-slate-100"
+            >WORKOUT PLAN</span
+          >
+        </a>
+        <div
+          class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse"
+        >
+          <button
+            type="button"
+            data-dropdown-toggle="language-dropdown-menu"
+            class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+          >
+            <svg
+              class="w-5 h-5 rounded-full me-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 3900 3900"
+            >
+              <path fill="#b22234" d="M0 0h7410v3900H0z" />
+              <path
+                d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
+                stroke="#fff"
+                stroke-width="300"
+              />
+              <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
+              <g fill="#fff">
+                <g id="d">
+                  <g id="c">
+                    <g id="e">
+                      <g id="b">
+                        <path
+                          id="a"
+                          d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
+                        />
+                        <use xlink:href="#a" y="420" />
+                        <use xlink:href="#a" y="840" />
+                        <use xlink:href="#a" y="1260" />
+                      </g>
+                      <use xlink:href="#a" y="1680" />
+                    </g>
+                    <use xlink:href="#b" x="247" y="210" />
+                  </g>
+                  <use xlink:href="#c" x="494" />
+                </g>
+                <use xlink:href="#d" x="988" />
+                <use xlink:href="#c" x="1976" />
+                <use xlink:href="#e" x="2470" />
+              </g>
+            </svg>
+            English (US)
+          </button>
+
+          <div
+            class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700"
+            id="language-dropdown-menu"
+          >
+            <ul class="py-2 font-medium" role="none">
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                >
+                  <div class="inline-flex items-center">
+                    <svg
+                      aria-hidden="true"
+                      class="h-3.5 w-3.5 rounded-full me-2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      id="flag-icon-css-us"
+                      viewBox="0 0 512 512"
+                    >
+                      <g fill-rule="evenodd">
+                        <g stroke-width="1pt">
+                          <path
+                            fill="#bd3d44"
+                            d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                            transform="scale(3.9385)"
+                          />
+                          <path
+                            fill="#fff"
+                            d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                            transform="scale(3.9385)"
+                          />
+                        </g>
+                        <path
+                          fill="#192f5d"
+                          d="M0 0h98.8v70H0z"
+                          transform="scale(3.9385)"
+                        />
+                        <path
+                          fill="#fff"
+                          d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z"
+                          transform="scale(3.9385)"
+                        />
+                      </g>
+                    </svg>
+                    English (US)
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                >
+                  <div class="inline-flex items-center">
+                    <svg
+                      class="h-3.5 w-3.5 rounded-full me-2"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      id="flag-icon-css-de"
+                      viewBox="0 0 512 512"
+                    >
+                      <path fill="#ffce00" d="M0 341.3h512V512H0z" />
+                      <path d="M0 0h512v170.7H0z" />
+                      <path fill="#d00" d="M0 170.7h512v170.6H0z" />
+                    </svg>
+                    Deutsch
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                >
+                  <div class="inline-flex items-center">
+                    <svg
+                      class="h-3.5 w-3.5 rounded-full me-2"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      id="flag-icon-css-it"
+                      viewBox="0 0 512 512"
+                    >
+                      <g fill-rule="evenodd" stroke-width="1pt">
+                        <path fill="#fff" d="M0 0h512v512H0z" />
+                        <path fill="#009246" d="M0 0h170.7v512H0z" />
+                        <path fill="#ce2b37" d="M341.3 0H512v512H341.3z" />
+                      </g>
+                    </svg>
+                    Italiano
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                >
+                  <div class="inline-flex items-center">
+                    <svg
+                      class="h-3.5 w-3.5 rounded-full me-2"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      id="flag-icon-css-cn"
+                      viewBox="0 0 512 512"
+                    >
+                      <defs>
+                        <path
+                          id="a"
+                          fill="#ffde00"
+                          d="M1-.3L-.7.8 0-1 .6.8-1-.3z"
+                        />
+                      </defs>
+                      <path fill="#de2910" d="M0 0h512v512H0z" />
+                      <use
+                        width="30"
+                        height="20"
+                        transform="matrix(76.8 0 0 76.8 128 128)"
+                        xlink:href="#a"
+                      />
+                      <use
+                        width="30"
+                        height="20"
+                        transform="rotate(-121 142.6 -47) scale(25.5827)"
+                        xlink:href="#a"
+                      />
+                      <use
+                        width="30"
+                        height="20"
+                        transform="rotate(-98.1 198 -82) scale(25.6)"
+                        xlink:href="#a"
+                      />
+                      <use
+                        width="30"
+                        height="20"
+                        transform="rotate(-74 272.4 -114) scale(25.6137)"
+                        xlink:href="#a"
+                      />
+                      <use
+                        width="30"
+                        height="20"
+                        transform="matrix(16 -19.968 19.968 16 256 230.4)"
+                        xlink:href="#a"
+                      />
+                    </svg>
+                    中文 (繁體)
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <button
+            data-collapse-toggle="navbar-language"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-language"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          id="navbar-language"
+        >
+          <ul
+            class="flex flex-col font-medium p-4 md:p-0 mt-4 border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 font-amulya"
+          >
+            <li>
+              <a
+                href="/src/index.html"
+                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="/src/Pricing.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
+                href="/src/contact.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="flex justify-center items-center w-full h-full">
+      <div class="p-8 rounded-lg shadow-md w-full max-w-md">
+        <form id="myForm" class="space-y-6">
+          <div id="questionContainer" class="space-y-4">
+            <div class="space-y-4">
+              <h1
+                class="text-4xl font-bold text-gray-300 font-amulya flex justify-center"
+              >
+                Are you ?
+              </h1>
+              <label
+                class="flex items-center p-3 border rounded-md cursor-pointer transition-colors hover:bg-gray-50"
+              >
+                <input type="radio" name="choice" value="1" class="hidden" />
+                <span
+                  class="w-6 h-6 flex items-center justify-center border border-gray-00 rounded-full mr-3"
+                >
+                  <span class="w-4 h-4 rounded-full bg-blue-500 hidden"></span>
+                </span>
+                <span class="text-sm font-medium mr-2">A</span>
+                <span>A man</span>
+              </label>
+              <label
+                class="flex items-center p-3 border rounded-md cursor-pointer transition-colors hover:bg-gray-50"
+              >
+                <input type="radio" name="choice" value="2" class="hidden" />
+                <span
+                  class="w-6 h-6 flex items-center justify-center border border-gray-300 rounded-full mr-3"
+                >
+                  <span class="w-4 h-4 rounded-full bg-blue-500 hidden"></span>
+                </span>
+                <span class="text-sm font-medium mr-2">B</span>
+                <span>A woman</span>
+              </label>
+              <label
+                class="flex items-center p-3 border rounded-md cursor-pointer transition-colors hover:bg-gray-50"
+              >
+                <input type="radio" name="choice" value="2" class="hidden" />
+                <span
+                  class="w-6 h-6 flex items-center justify-center border border-gray-300 rounded-full mr-3"
+                >
+                  <span class="w-4 h-4 rounded-full bg-blue-500 hidden"></span>
+                </span>
+                <span class="text-sm font-medium mr-2">C</span>
+                <span>Other</span>
+              </label>
+            </div>
+          </div>
+          <div class="flex justify-between">
+            <button
+              type="button"
+              id="previousButton"
+              class="hidden w-1/2 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors mr-2"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              id="nextButton"
+              class="w-1/2 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+            >
+              Next
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("myForm");
+        const questionContainer = document.getElementById("questionContainer");
+        const nextButton = document.getElementById("nextButton");
+        const previousButton = document.getElementById("previousButton");
+
+        const questions = [
+          {
+            title: "Are you ?",
+            options: [
+              { label: "A", text: "A man", value: "man" },
+              { label: "B", text: "A woman", value: "woman" },
+              { label: "C", text: "Other", value: "other" },
+            ],
+          },
+          {
+            title: "What's your age?",
+            type: "number",
+            placeholder: "Enter your age",
+            min: 18,
+            max: 99,
+          },
+          {
+            title: "Quelle morphologie êtes-vous ?",
+            options: [
+              { label: "A", text: "Ectomorphe", value: "ectomorphe" },
+              { label: "B", text: "Mésomorphe", value: "mesomorphe" },
+              { label: "C", text: "Endomorphe", value: "endomorphe" },
+            ],
+          },
+          {
+            title: "What's your goals ?",
+            options: [
+              { label: "A", text: "Weight loss", value: "loss" },
+              { label: "B", text: "Gain muscle", value: "gain" },
+              {
+                label: "C",
+                text: "Competition preparation",
+                value: "preparation",
+              },
+            ],
+          },
+          {
+            title: "How many days a week are you available to train ?",
+            options: [
+              { label: "A", text: "2-3", value: "3" },
+              { label: "B", text: "4-5", value: "5" },
+              { label: "C", text: "5-6", value: "6" },
+            ],
+          },
+        ];
+
+        let currentQuestionIndex = 0;
+        let answers =
+          JSON.parse(localStorage.getItem("workoutFormAnswers")) || {};
+
+        function updateButtonVisibility() {
+          if (currentQuestionIndex > 0) {
+            previousButton.classList.remove("hidden");
+          } else {
+            previousButton.classList.add("hidden");
+          }
+
+          if (currentQuestionIndex === questions.length - 1) {
+            nextButton.textContent = "Submit";
+          } else {
+            nextButton.textContent = "Next";
+          }
+        }
+
+        function displayQuestion(index) {
+          const question = questions[index];
+          questionContainer.innerHTML = `
+      <h1 class="text-4xl font-bold text-gray-300 font-amulya flex justify-center">${question.title}</h1>
+    `;
+
+          if (question.options) {
+            question.options.forEach((option) => {
+              questionContainer.innerHTML += `
+          <label class="flex items-center p-3 border rounded-md cursor-pointer transition-colors hover:bg-gray-50">
+            <input type="radio" name="choice" value="${option.value}" class="hidden">
+            <span class="w-6 h-6 flex items-center justify-center border border-gray-300 rounded-full mr-3">
+              <span class="w-4 h-4 rounded-full bg-blue-500 hidden"></span>
+            </span>
+            <span class="text-sm font-medium mr-2">${option.label}</span>
+            <span>${option.text}</span>
+          </label>
+        `;
+            });
+          } else if (question.type === "number") {
+            questionContainer.innerHTML += `
+        <input type="number" class="w-full p-2 border rounded-md" placeholder="${question.placeholder}" min="${question.min}" max="${question.max}">
+        <p class="text-sm text-gray-500 mt-2">Please enter an age between ${question.min} and ${question.max}.</p>
+      `;
+          }
+
+          attachEvents();
+          updateButtonVisibility();
+        }
+
+        function attachEvents() {
+          const radioLabels = form.querySelectorAll("label");
+          radioLabels.forEach((label) => {
+            label.addEventListener("click", () => {
+              radioLabels.forEach((l) => {
+                l.classList.remove("bg-blue-50", "border-blue-500");
+                l.querySelector("span span").classList.add("hidden");
+              });
+              label.classList.add("bg-blue-50", "border-blue-500");
+              label.querySelector("span span").classList.remove("hidden");
+            });
+          });
+
+          form.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              goToNextQuestion();
+            }
+          });
+        }
+
+        function validateAnswer() {
+          const question = questions[currentQuestionIndex];
+          if (question.options) {
+            const selectedValue = form.querySelector(
+              'input[name="choice"]:checked'
+            )?.value;
+            return !!selectedValue;
+          } else if (question.type === "number") {
+            const ageInput = form.querySelector('input[type="number"]');
+            const age = parseInt(ageInput.value);
+            return age >= question.min && age <= question.max;
+          }
+          return true;
+        }
+
+        function saveAnswer() {
+          const question = questions[currentQuestionIndex];
+          if (question.options) {
+            const selectedValue = form.querySelector(
+              'input[name="choice"]:checked'
+            )?.value;
+            if (selectedValue) {
+              answers[`question${currentQuestionIndex}`] = selectedValue;
+            }
+          } else if (question.type === "number") {
+            const ageInput = form.querySelector('input[type="number"]');
+            if (ageInput && ageInput.value) {
+              answers[`question${currentQuestionIndex}`] = ageInput.value;
+            }
+          }
+          localStorage.setItem("workoutFormAnswers", JSON.stringify(answers));
+        }
+
+        function goToNextQuestion() {
+          if (validateAnswer()) {
+            saveAnswer();
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+              displayQuestion(currentQuestionIndex);
+            } else {
+              console.log("Form completed", answers);
+              alert("Form completed. Check console for results.");
+            }
+          } else {
+            alert("Please provide a valid answer before proceeding.");
+          }
+        }
+
+        if (nextButton) {
+          nextButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            goToNextQuestion();
+          });
+        }
+
+        if (previousButton) {
+          previousButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            currentQuestionIndex--;
+            displayQuestion(currentQuestionIndex);
+          });
+        }
+
+        displayQuestion(currentQuestionIndex);
+      });
+    </script>
+  </body>
+</html>

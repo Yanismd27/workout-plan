@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/output.css" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=synonym@400&f[]=amulya@700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/d0733e0c61.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Workout plan generator</title>
+  </head>
+
+  <body class="bg-gradient-to-r from-slate-900 to-slate-300 min-h-screen">
+    <nav class="dark:bg-gray-900">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <i class="h-6 fa-solid fa-dumbbell"></i>
+          <span
+            class="self-center text-1xl font-semibold whitespace-nowrap dark:text-slate-100"
+            >WORKOUT PLAN</span
+          >
+        </a>
+        <div
+          class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse"
+        >
+          <button
+            type="button"
+            data-dropdown-toggle="language-dropdown-menu"
+            class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+          >
+            <svg
+              class="w-5 h-5 rounded-full me-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 3900 3900"
+            >
+              <path fill="#b22234" d="M0 0h7410v3900H0z" />
+              <path
+                d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
+                stroke="#fff"
+                stroke-width="300"
+              />
+              <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
+              <g fill="#fff">
+                <g id="d">
+                  <g id="c">
+                    <g id="e">
+                      <g id="b">
+                        <path
+                          id="a"
+                          d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
+                        />
+                        <use xlink:href="#a" y="420" />
+                        <use xlink:href="#a" y="840" />
+                        <use xlink:href="#a" y="1260" />
+                      </g>
+                      <use xlink:href="#a" y="1680" />
+                    </g>
+                    <use xlink:href="#b" x="247" y="210" />
+                  </g>
+                  <use xlink:href="#c" x="494" />
+                </g>
+                <use xlink:href="#d" x="988" />
+                <use xlink:href="#c" x="1976" />
+                <use xlink:href="#e" x="2470" />
+              </g>
+            </svg>
+            English (US)
+          </button>
+
+          <div
+            class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700"
+            id="language-dropdown-menu"
+          >
+            <ul class="py-2 font-medium" role="none">
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                >
+                  <div class="inline-flex items-center">
+                    <svg
+                      aria-hidden="true"
+                      class="h-3.5 w-3.5 rounded-full me-2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      id="flag-icon-css-us"
+                      viewBox="0 0 512 512"
+                    >
+                      <g fill-rule="evenodd">
+                        <g stroke-width="1pt">
+                          <path
+                            fill="#bd3d44"
+                            d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                            transform="scale(3.9385)"
+                          />
+                          <path
+                            fill="#fff"
+                            d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z"
+                            transform="scale(3.9385)"
+                          />
+                        </g>
+                        <path
+                          fill="#192f5d"
+                          d="M0 0h98.8v70H0z"
+                          transform="scale(3.9385)"
+                        />
+                        <path
+                          fill="#fff"
+                          d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z"
+                          transform="scale(3.9385)"
+                        />
+                      </g>
+                    </svg>
+                    English (US)
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                >
+                  <div class="inline-flex items-center">
+                    <svg
+                      class="h-3.5 w-3.5 rounded-full me-2"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      id="flag-icon-css-de"
+                      viewBox="0 0 512 512"
+                    >
+                      <path fill="#ffce00" d="M0 341.3h512V512H0z" />
+                      <path d="M0 0h512v170.7H0z" />
+                      <path fill="#d00" d="M0 170.7h512v170.6H0z" />
+                    </svg>
+                    Deutsch
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                >
+                  <div class="inline-flex items-center">
+                    <svg
+                      class="h-3.5 w-3.5 rounded-full me-2"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      id="flag-icon-css-it"
+                      viewBox="0 0 512 512"
+                    >
+                      <g fill-rule="evenodd" stroke-width="1pt">
+                        <path fill="#fff" d="M0 0h512v512H0z" />
+                        <path fill="#009246" d="M0 0h170.7v512H0z" />
+                        <path fill="#ce2b37" d="M341.3 0H512v512H341.3z" />
+                      </g>
+                    </svg>
+                    Italiano
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem"
+                >
+                  <div class="inline-flex items-center">
+                    <svg
+                      class="h-3.5 w-3.5 rounded-full me-2"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      id="flag-icon-css-cn"
+                      viewBox="0 0 512 512"
+                    >
+                      <defs>
+                        <path
+                          id="a"
+                          fill="#ffde00"
+                          d="M1-.3L-.7.8 0-1 .6.8-1-.3z"
+                        />
+                      </defs>
+                      <path fill="#de2910" d="M0 0h512v512H0z" />
+                      <use
+                        width="30"
+                        height="20"
+                        transform="matrix(76.8 0 0 76.8 128 128)"
+                        xlink:href="#a"
+                      />
+                      <use
+                        width="30"
+                        height="20"
+                        transform="rotate(-121 142.6 -47) scale(25.5827)"
+                        xlink:href="#a"
+                      />
+                      <use
+                        width="30"
+                        height="20"
+                        transform="rotate(-98.1 198 -82) scale(25.6)"
+                        xlink:href="#a"
+                      />
+                      <use
+                        width="30"
+                        height="20"
+                        transform="rotate(-74 272.4 -114) scale(25.6137)"
+                        xlink:href="#a"
+                      />
+                      <use
+                        width="30"
+                        height="20"
+                        transform="matrix(16 -19.968 19.968 16 256 230.4)"
+                        xlink:href="#a"
+                      />
+                    </svg>
+                    中文 (繁體)
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <button
+            data-collapse-toggle="navbar-language"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-language"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          id="navbar-language"
+        >
+          <ul
+            class="flex flex-col font-medium p-4 md:p-0 mt-4 border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 font-amulya"
+          >
+            <li>
+              <a
+                href="/src/index.html"
+                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="/src/Pricing.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
+                href="/src/contact.html"
+                class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-4xl text-center">
+          <h2 class="text-base font-semibold leading-7 text-indigo-600">
+            Pricing
+          </h2>
+          <p
+            class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            Pricing plans for everybody
+          </p>
+        </div>
+        <p
+          class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-zinc-100"
+        >
+          Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et
+          quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.
+        </p>
+        <div class="mt-16 flex justify-center">
+          <fieldset aria-label="Payment frequency">
+            <div
+              class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+            >
+              <label
+                id="monthlyLabel"
+                class="cursor-pointer rounded-full px-2.5 py-1"
+              >
+                <input
+                  type="radio"
+                  name="frequency"
+                  value="monthly"
+                  class="sr-only"
+                  checked
+                />
+                <span>Monthly</span>
+              </label>
+              <label
+                id="annuallyLabel"
+                class="cursor-pointer rounded-full px-2.5 py-1"
+              >
+                <input
+                  type="radio"
+                  name="frequency"
+                  value="annually"
+                  class="sr-only"
+                />
+                <span>Annually</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div
+          class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+        >
+          <div class="rounded-3xl p-8 ring-1 ring-gray-200 xl:p-10">
+            <h3
+              id="tier-Beginner"
+              class="text-lg font-bold leading-8 text-gray-900"
+            >
+              Beginner
+            </h3>
+            <p class="mt-4 text-sm leading-6 text-zinc-100">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <p class="mt-6 flex items-baseline gap-x-1">
+              <span class="text-4xl font-bold tracking-tight text-gray-900"
+                >$15</span
+              >
+              <span class="text-sm font-semibold leading-6 text-zinc-100"
+                >/month</span
+              >
+            </p>
+            <a
+              href="#"
+              aria-describedby="tier-Beginner"
+              class="mt-6 block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >Buy plan</a
+            >
+            <ul
+              role="list"
+              class="mt-8 space-y-3 text-sm leading-6 text-zinc-100 xl:mt-10"
+            >
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-indigo-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                6 weeks plans
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-indigo-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Nutrition plan
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-indigo-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Basic analytics
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-indigo-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                24-hour support response time
+              </li>
+            </ul>
+          </div>
+          <div class="rounded-3xl p-8 ring-1 ring-gray-200 xl:p-10">
+            <h3
+              id="tier-Experienced"
+              class="text-lg font-semibold leading-8 text-gray-900"
+            >
+              Experienced
+            </h3>
+            <p class="mt-4 text-sm leading-6 text-zinc-100">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus, repellat?
+            </p>
+            <p class="mt-6 flex items-baseline gap-x-1">
+              <!-- Price, update based on frequency toggle state -->
+              <span class="text-4xl font-bold tracking-tight text-gray-900"
+                >$30</span
+              >
+              <!-- Payment frequency, update based on frequency toggle state -->
+              <span class="text-sm font-semibold leading-6 text-zinc-100"
+                >/month</span
+              >
+            </p>
+            <a
+              href="#"
+              aria-describedby="tier-Experienced"
+              class="mt-6 block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >Buy plan</a
+            >
+            <ul
+              role="list"
+              class="mt-8 space-y-3 text-sm leading-6 text-zinc-100 xl:mt-10"
+            >
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-indigo-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                6 months plans
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-indigo-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Advanced nutrition plan
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-indigo-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Advanced analytics
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-indigo-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                2-hour support response time
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-indigo-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Customized follow-up
+              </li>
+            </ul>
+          </div>
+          <div class="rounded-3xl bg-gray-900 p-8 ring-1 ring-gray-900 xl:p-10">
+            <h3
+              id="tier-enterprise"
+              class="text-lg font-semibold leading-8 text-white"
+            >
+              Enterprise
+            </h3>
+            <p class="mt-4 text-sm leading-6 text-gray-300">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Doloribus inventore ullam temporibus ea eum tempora?
+            </p>
+            <p class="mt-6 flex items-baseline gap-x-1">
+              <span class="text-4xl font-bold tracking-tight text-white"
+                >Custom</span
+              >
+            </p>
+            <a
+              href="#"
+              aria-describedby="tier-enterprise"
+              class="mt-6 block rounded-md bg-white/10 px-3 py-2 text-center text-sm font-semibold leading-6 text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >Contact sales</a
+            >
+            <ul
+              role="list"
+              class="mt-8 space-y-3 text-sm leading-6 text-gray-300 xl:mt-10"
+            >
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Customized program
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Personalized nutrition plan
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Personalized training plan
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Gym sessions with a personal trainer
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Meeting with a nutritionist
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                1-hour support response time
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const monthlyLabel = document.getElementById("monthlyLabel");
+        const annuallyLabel = document.getElementById("annuallyLabel");
+        const monthlyInput = monthlyLabel.querySelector("input");
+        const annuallyInput = annuallyLabel.querySelector("input");
+
+        const prices = {
+          Beginner: { monthly: 15, annually: 150 },
+          Experienced: { monthly: 30, annually: 300 },
+          Enterprise: { monthly: "Custom", annually: "Custom" },
+        };
+
+        function updateStyles(selectedLabel, unselectedLabel) {
+          selectedLabel.classList.remove("text-zinc-100");
+          selectedLabel.classList.add("bg-indigo-600", "text-white");
+          unselectedLabel.classList.remove("bg-indigo-600", "text-white");
+          unselectedLabel.classList.add("text-zinc-100");
+        }
+
+        function updatePrices(isAnnual) {
+          for (const plan in prices) {
+            const priceElement = document.querySelector(
+              `#tier-${plan} + p .text-4xl`
+            );
+            const frequencyElement = document.querySelector(
+              `#tier-${plan} + p .text-sm`
+            );
+            if (priceElement && frequencyElement) {
+              const price = isAnnual
+                ? prices[plan].annually
+                : prices[plan].monthly;
+              priceElement.textContent =
+                typeof price === "number" ? `$${price}` : price;
+              frequencyElement.textContent = isAnnual ? "/year" : "/month";
+            }
+          }
+        }
+
+        function handleFrequencyChange(isAnnual) {
+          updateStyles(
+            isAnnual ? annuallyLabel : monthlyLabel,
+            isAnnual ? monthlyLabel : annuallyLabel
+          );
+          updatePrices(isAnnual);
+        }
+
+        monthlyInput.addEventListener("change", () =>
+          handleFrequencyChange(false)
+        );
+        annuallyInput.addEventListener("change", () =>
+          handleFrequencyChange(true)
+        );
+
+        handleFrequencyChange(false);
+
+        console.log("Script de mise à jour des prix chargé et initialisé");
+      });
+    </script>
+  </body>
+</html>
