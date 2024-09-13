@@ -303,6 +303,13 @@
     </nav>
     <div class="flex justify-center items-center w-full h-full">
       <div class="p-8 rounded-lg shadow-md w-full max-w-md">
+        <div
+          id="customAlert"
+          class="hidden bg-red-100 border border-red-500 text-red-700 px-4 py-3 rounded relative mb-4"
+          role="alert"
+        >
+          <span class="block sm:inline" id="alertMessage"></span>
+        </div>
         <form id="myForm" class="space-y-6">
           <div id="questionContainer" class="space-y-4">
             <div class="space-y-4">
@@ -393,11 +400,11 @@
             max: 99,
           },
           {
-            title: "Quelle morphologie êtes-vous ?",
+            title: "What is your body type?",
             options: [
-              { label: "A", text: "Ectomorphe", value: "ectomorphe" },
-              { label: "B", text: "Mésomorphe", value: "mesomorphe" },
-              { label: "C", text: "Endomorphe", value: "endomorphe" },
+              { label: "A", text: "Ectomorph", value: "ectomorph" },
+              { label: "B", text: "Mesomorph", value: "mesomorph" },
+              { label: "C", text: "Endomorph", value: "endomorph" },
             ],
           },
           {
@@ -413,18 +420,36 @@
             ],
           },
           {
-            title: "How many days a week are you available to train ?",
+            title: "Do you have any health problems?",
             options: [
-              { label: "A", text: "2-3", value: "3" },
-              { label: "B", text: "4-5", value: "5" },
-              { label: "C", text: "5-6", value: "6" },
+              { label: "A", text: "Yes", value: "yes" },
+              { label: "B", text: "No", value: "no" },
             ],
+            if: "yes",
+            placeholder: "Please specify",
+          },
+          {
+            title: "What's your email address?",
+            type: "email",
+            placeholder: "Enter your email address",
           },
         ];
 
         let currentQuestionIndex = 0;
         let answers =
           JSON.parse(localStorage.getItem("workoutFormAnswers")) || {};
+
+        function showCustomAlert(message) {
+          const alertElement = document.getElementById("customAlert");
+          const messageElement = document.getElementById("alertMessage");
+          messageElement.textContent = message;
+          alertElement.classList.remove("hidden");
+        }
+
+        function hideCustomAlert() {
+          const alertElement = document.getElementById("customAlert");
+          alertElement.classList.add("hidden");
+        }
 
         function updateButtonVisibility() {
           if (currentQuestionIndex > 0) {
@@ -459,10 +484,22 @@
           </label>
         `;
             });
+
+            if (question.if) {
+              questionContainer.innerHTML += `
+          <div id="conditionalInput" class="mt-4 hidden">
+            <input type="text" class="w-full p-2 border rounded-md" placeholder="${question.placeholder}">
+          </div>
+        `;
+            }
           } else if (question.type === "number") {
             questionContainer.innerHTML += `
         <input type="number" class="w-full p-2 border rounded-md" placeholder="${question.placeholder}" min="${question.min}" max="${question.max}">
         <p class="text-sm text-gray-500 mt-2">Please enter an age between ${question.min} and ${question.max}.</p>
+      `;
+          } else if (question.type === "email") {
+            questionContainer.innerHTML += `
+        <input type="email" class="w-full p-2 border rounded-md" placeholder="${question.placeholder}">
       `;
           }
 
@@ -480,6 +517,21 @@
               });
               label.classList.add("bg-blue-50", "border-blue-500");
               label.querySelector("span span").classList.remove("hidden");
+
+              const question = questions[currentQuestionIndex];
+              if (question.if) {
+                const selectedValue = label.querySelector(
+                  'input[type="radio"]'
+                ).value;
+                const conditionalInput =
+                  document.getElementById("conditionalInput");
+                if (selectedValue === question.if) {
+                  conditionalInput.classList.remove("hidden");
+                } else {
+                  conditionalInput.classList.add("hidden");
+                }
+              }
+              hideCustomAlert();
             });
           });
 
@@ -489,6 +541,17 @@
               goToNextQuestion();
             }
           });
+
+          const inputs = form.querySelectorAll(
+            'input[type="number"], input[type="email"], #conditionalInput input'
+          );
+          inputs.forEach((input) => {
+            input.addEventListener("input", () => {
+              if (validateAnswer()) {
+                hideCustomAlert();
+              }
+            });
+          });
         }
 
         function validateAnswer() {
@@ -497,11 +560,40 @@
             const selectedValue = form.querySelector(
               'input[name="choice"]:checked'
             )?.value;
-            return !!selectedValue;
+            if (!selectedValue) {
+              showCustomAlert("Please select an option.");
+              return false;
+            }
+            if (question.if && selectedValue === question.if) {
+              const conditionalInput = form.querySelector(
+                "#conditionalInput input"
+              );
+              if (conditionalInput.value.trim() === "") {
+                showCustomAlert(
+                  "Please provide details for your health problem."
+                );
+                return false;
+              }
+            }
+            return true;
           } else if (question.type === "number") {
             const ageInput = form.querySelector('input[type="number"]');
             const age = parseInt(ageInput.value);
-            return age >= question.min && age <= question.max;
+            if (isNaN(age) || age < question.min || age > question.max) {
+              showCustomAlert(
+                `Please enter a valid age between ${question.min} and ${question.max}.`
+              );
+              return false;
+            }
+            return true;
+          } else if (question.type === "email") {
+            const emailInput = form.querySelector('input[type="email"]');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+              showCustomAlert("Please enter a valid email address.");
+              return false;
+            }
+            return true;
           }
           return true;
         }
@@ -514,11 +606,23 @@
             )?.value;
             if (selectedValue) {
               answers[`question${currentQuestionIndex}`] = selectedValue;
+              if (question.if && selectedValue === question.if) {
+                const conditionalInput = form.querySelector(
+                  "#conditionalInput input"
+                );
+                answers[`question${currentQuestionIndex}_details`] =
+                  conditionalInput.value.trim();
+              }
             }
           } else if (question.type === "number") {
             const ageInput = form.querySelector('input[type="number"]');
             if (ageInput && ageInput.value) {
               answers[`question${currentQuestionIndex}`] = ageInput.value;
+            }
+          } else if (question.type === "email") {
+            const emailInput = form.querySelector('input[type="email"]');
+            if (emailInput && emailInput.value) {
+              answers[`question${currentQuestionIndex}`] = emailInput.value;
             }
           }
           localStorage.setItem("workoutFormAnswers", JSON.stringify(answers));
@@ -526,17 +630,35 @@
 
         function goToNextQuestion() {
           if (validateAnswer()) {
+            hideCustomAlert();
             saveAnswer();
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
               displayQuestion(currentQuestionIndex);
             } else {
               console.log("Form completed", answers);
-              alert("Form completed. Check console for results.");
+              sendEmail(answers);
+              showCustomAlert(
+                "Form completed. An email will be sent to you shortly."
+              );
             }
-          } else {
-            alert("Please provide a valid answer before proceeding.");
           }
+        }
+
+        function sendEmail(formAnswers) {
+          // Ici, vous devrez implémenter la logique d'envoi d'email
+          console.log("Sending email with form answers:", formAnswers);
+          // Exemple de requête fetch vers votre serveur pour envoyer l'email
+          // fetch('/api/send-email', {
+          //   method: 'POST',
+          //   headers: {
+          //     'Content-Type': 'application/json',
+          //   },
+          //   body: JSON.stringify(formAnswers),
+          // })
+          // .then(response => response.json())
+          // .then(data => console.log('Email sent:', data))
+          // .catch((error) => console.error('Error:', error));
         }
 
         if (nextButton) {
@@ -551,6 +673,7 @@
             e.preventDefault();
             currentQuestionIndex--;
             displayQuestion(currentQuestionIndex);
+            hideCustomAlert();
           });
         }
 
